@@ -23,7 +23,7 @@ export default class Transactions1604888625547 implements MigrationInterface {
           },
           {
             name: 'value',
-            type: 'decimal',
+            type: 'numeric',
           },
 
           {

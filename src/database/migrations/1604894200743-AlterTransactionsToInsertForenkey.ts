@@ -13,13 +13,14 @@ export default class AlterTransactionsToInsertForenkey1604894200743
       new TableColumn({
         name: 'category_id',
         type: 'uuid',
+        isNullable: true,
       }),
     );
 
     await queryRunner.createForeignKey(
       'transactions',
       new TableForeignKey({
-        name: 'KeyTransaction',
+        name: 'keyTransaction',
         columnNames: ['category_id'],
         referencedColumnNames: ['id'],
         referencedTableName: 'categories',
@@ -30,7 +31,7 @@ export default class AlterTransactionsToInsertForenkey1604894200743
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('transactions', 'KeyTransaction');
+    await queryRunner.dropForeignKey('transactions', 'keyTransaction');
     await queryRunner.dropColumn('transactions', 'category_id');
   }
 }
